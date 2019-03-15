@@ -1,7 +1,7 @@
 version: "2"
 services:
   unittest:
-    image: revenuewire/validator:latest
+    image: revenuewire/iso8583:latest
     build:
       context: .
       dockerfile: docker/Dockerfile

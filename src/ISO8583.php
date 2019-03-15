@@ -9,7 +9,7 @@ declare(strict_types=1);
  *  2. FirstData Secure Transport XML Interface Reference Guide - Product Version 3.2 Document Revision 1.12
  *  3. FirstData ISO 8583 Global TransArmor Addendum Document - Version 2016-1a
  */
-namespace RW\ISO8583;
+namespace RW;
 
 class ISO8583
 {

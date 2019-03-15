@@ -1,5 +1,5 @@
 <?php
-use \RW\ISO8583\ISO8583;
+use RW\ISO8583;
 
 class ISO8583Test extends \PHPUnit\Framework\TestCase
 {

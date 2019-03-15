@@ -10,7 +10,7 @@
 composer require revenuewire/ISO8583
 ```
 
-## Spec
+# Specs
 **Warning**: This library is not a generic ISO8583 implementation. The library is specially coded to implement the following specs
 1. FirstData ISO 8583 Global Specification - Version 2017-2a
 2. FirstData ISO 8583 Global TransArmor Addendum Document - Version 2016-1a
@@ -61,4 +61,12 @@ Also, not all tables are implemented. Many tables such as Canadian Debit support
 | Bitmap 63 | Table DS | Discovery Compliance Field Identifier Table |
 | Bitmap 63 | Table SP | TransArmor Token |
 
+# Unit tests
+```bash
+docker-compose build unittest
+sh ./bin/go-test.sh
+```
 
+# Examples
+## pre-auth transaction
+Coming soon.
