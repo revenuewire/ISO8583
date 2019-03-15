@@ -1,5 +1,5 @@
 {
-  "name": "revenuewire/ISO8583",
+  "name": "revenuewire/iso8583",
   "type": "library",
   "description": "FirstData ISO 8583 Global Specification",
   "homepage": "https://github.com/revenuewire/ISO8583",
