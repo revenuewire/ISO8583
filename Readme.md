@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/revenuewire/ISO8583.svg?branch=master)](https://travis-ci.org/revenuewire/validator)
-[![Coverage Status](https://coveralls.io/repos/github/revenuewire/ISO8583/badge.svg?branch=master)](https://coveralls.io/github/revenuewire/validator?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/revenuewire/ISO8583/badge.svg?branch=master)](https://coveralls.io/github/revenuewire/ISO8583?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/revenuewire/ISO8583/v/stable)](https://packagist.org/packages/revenuewire/validator)
 [![License](https://poser.pugx.org/revenuewire/ISO8583/license)](https://packagist.org/packages/revenuewire/validator)
 [![composer.lock](https://poser.pugx.org/revenuewire/ISO8583/composerlock)](https://packagist.org/packages/revenuewire/validator)
