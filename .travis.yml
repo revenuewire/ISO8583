@@ -10,5 +10,5 @@ install:
 script: sh ./bin/go-test.sh
 after_success:
   - docker-compose down
-  - sudo chmod 777 -R ./build
-  - travis_retry php vendor/bin/php-coveralls -v -r vendor/../
+  - sudo chmod 777 -R ${TRAVIS_BUILD_DIR}/build
+  - travis_retry php vendor/bin/php-coveralls -v -r ${TRAVIS_BUILD_DIR}
