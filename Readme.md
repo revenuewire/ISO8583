@@ -68,5 +68,94 @@ sh ./bin/go-test.sh
 ```
 
 # Examples
-## pre-auth transaction
-Coming soon.
+## pre-auth only transaction
+```php
+ /**
+ * ISO8583 Payload
+ */
+$iso8583 = new ISO8583();
+
+/**
+* MTI
+*/
+$iso8583->setMTI(ISO8583::FD_MTI_CREDIT_AUTH_REQUEST);
+
+/**
+ * Bit 2
+ */
+$iso8583->setData(ISO8583::FD_BIT_2_PRIMARY_ACCOUNT_NUMBER, ISO8583::getBit2PrimaryAccountNumber($cardNumber));
+
+/**
+* Bit 3
+*/
+$iso8583->setData(ISO8583::FD_BIT_3_PROCESSING_CODE, ISO8583::FD_PC_000000_CREDIT_CARD_PURCHASE);
+
+/**
+ * Bit 4
+ */
+$iso8583->setData(ISO8583::FD_BIT_4_AMOUNT_OF_TRANSACTION, $amount);
+
+/**
+ * Bit 7
+ */
+$iso8583->setData(ISO8583::FD_BIT_7_TRANSMISSION_DATETIME, date("mdHis"));
+
+/**
+ * Bit 11
+ */
+$iso8583->setData(ISO8583::FD_BIT_11_SYSTEM_TRACE_DEBIT_REG_RECEIPT_NUMBER, (string) $systemTraceNumber);
+        
+/**
+ * Bit 14
+ */
+ $iso8583->setData(ISO8583::FD_BIT_14_CARD_EXPIRATION_DATE, $expiredDate);
+ 
+ /**
+  * Bit 22
+  */
+ $iso8583->setData(ISO8583::FD_BIT_22_POS_ENTRY_MODE, "010");
+
+ /**
+  * Bit 24
+  */
+ $iso8583->setData(ISO8583::FD_BIT_24_NETWORK_INTERNATIONAL_ID, "0001");
+ 
+ /**
+  * Bit 31
+  */
+ $iso8583->setData(ISO8583::FD_BIT_31_ACQUIRER_REFERENCE_DATA, ISO8583::FD_ARD_0_AUTHORIZATION_ONLY);
+ 
+ /**
+  * Bit 41,42
+  */
+ $iso8583->setData(ISO8583::FD_BIT_41_TERMINAL_ID, $tid);
+ $iso8583->setData(ISO8583::FD_BIT_42_MERCHANT_ID, $mid);
+ 
+ /**
+  * Bit 49
+  */
+ $iso8583->setData(ISO8583::FD_BIT_49_TRANSACTION_CURRENCY_CODE, $paymentCurrency);
+
+ /**
+  * Bit 59
+  */
+ $iso8583->setData(ISO8583::FD_BIT_59_MERCHANT_ZIP, $merchantZip);
+
+ /**
+  * Bit 60
+  */
+ $iso8583->setData(ISO8583::FD_BIT_60_ADDITIONAL_POS_INFO, "01");
+ 
+ /**
+  * Bit 63 Table 14, VISA Transaction
+  */
+ $iso8583->addDataTable(ISO8583::FD_BIT_63_FD_PRIVATE_USE, ISO8583::FD_BIT_63_TABLE_14_ADDITIONAL_CARD_DATA, ISO8583::getBit63Table14AdditionalVisaData(["aci" => "Y"]));
+ $iso8583->addDataTable(ISO8583::FD_BIT_63_FD_PRIVATE_USE, ISO8583::FD_BIT_63_TABLE_VI_COMPLIANCE, ISO8583::getBit63TableVIMCDSCompliance());
+         
+/**
+  * Bit 63 Table SP, using TransArmor
+  */
+ $iso8583->addDataTable(ISO8583::FD_BIT_63_FD_PRIVATE_USE, ISO8583::FD_BIT_63_TABLE_SP_TRANS_ARMOR, ISO8583::getBit63TableSPTransArmorToken());
+ 
+ return $iso8583->getEncodedISO();
+```
