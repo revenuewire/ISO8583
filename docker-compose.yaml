@@ -1,0 +1,11 @@
+version: "2"
+services:
+  unittest:
+    image: revenuewire/validator:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+        - $PWD:/var/src
+    working_dir: /var/src/
+    command: ./bin/run-test.sh
